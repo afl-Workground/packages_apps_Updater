@@ -56,35 +56,7 @@
                     android:paddingBottom="16dp"
                     android:textColor="?android:attr/textColorPrimary"
                     android:textSize="56sp"
-                    tools:text="AfterlifeOS\n20"/>
-
-                <TextView
-                    android:id="@+id/header_build_version"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/header_title"
-                    android:textColor="?android:attr/textColorPrimary"
-                    android:textSize="12sp"
-                    tools:text="Android 13"/>
-
-                <TextView
-                    android:id="@+id/header_build_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/header_build_version"
-                    android:textColor="?android:attr/textColorPrimary"
-                    android:textSize="12sp"
-                    tools:text="1970-01-01"/>
-
-                <TextView
-                    android:id="@+id/header_last_check"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/header_build_date"
-                    android:layout_marginTop="8dp"
-                    android:textColor="?android:attr/textColorPrimary"
-                    android:textSize="12sp"
-                    tools:text="Last checked: 1970-01-01"/>
+                    tools:text="AfterlifeOS\n20" />
             </RelativeLayout>
 
             <androidx.appcompat.widget.Toolbar
@@ -93,8 +65,10 @@
                 android:layout_height="?attr/actionBarSize"
                 android:theme="?android:attr/actionBarTheme"
                 android:transitionName="shared_element_view"
-                app:layout_collapseMode="pin"/>
+                app:layout_collapseMode="pin" />
+
         </com.google.android.material.appbar.CollapsingToolbarLayout>
+
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
@@ -104,6 +78,43 @@
         android:padding="46dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:src="@drawable/kaerushi"
+                android:background="@drawable/container_round"
+                android:clipToOutline="true"
+                android:contentDescription="User Avatar" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="24dp"
+                android:layout_marginStart="12dp"
+                android:paddingVertical="18dp"
+                android:backgroundTint="?attr/colorSurfaceVariant"
+                android:background="@drawable/container_round"
+                android:gravity="center_vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Hi, KaeruShi"
+                    android:textStyle="bold"
+                    android:textSize="16sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="New update available!"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -112,13 +123,45 @@
             android:textColor="?android:textColorSecondary" />
     </androidx.core.widget.NestedScrollView>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clipToPadding="false"
-        android:paddingBottom="5dp"
-        android:scrollbars="vertical"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/container"
+        android:backgroundTint="?attr/colorSurfaceVariant"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:listitem="@layout/update_item_view" />
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/header_build_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Android 16" />
+
+        <TextView
+            android:id="@+id/header_build_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/header_build_version"
+            tools:text="October 20, 2025" />
+
+        <TextView
+            android:id="@+id/header_last_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/header_build_date"
+            android:layout_marginTop="12dp"
+            tools:text="Last checked: October21, 2025 (10:24)" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:layout_below="@id/header_last_check"
+            android:layout_marginTop="16dp"
+            tools:listitem="@layout/update_item_view" />
+
+    </RelativeLayout>
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
